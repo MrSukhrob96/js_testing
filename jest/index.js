@@ -37,23 +37,20 @@ const symbols = new Map([
 
 const rimNumberToArr = number => number.split('');
 
-const getKeyFromMapWithValue = (value) => {
-    let data = [...symbols].find(([key, val]) => val === value);
-    if (data) {
-        let [key, _] = data;
-        return key;
-    }
-
-    return null;
-}
-
 function RimNumberConvertor(number) {
     let numbers = rimNumberToArr(number);
     result = 0;
 
-    for (let i = 0; i < length(numbers); i++) {
-
+    for (let i = 0; i < numbers.length; i++) {
+        if (symbols.get(numbers[i]) < symbols.get(numbers[i + 1])) {
+            result += Number(symbols.get(numbers[i + 1]) - symbols.get(numbers[i]))
+            i++
+        } else {
+            result += symbols.get(numbers[i])
+        }
     }
+
+    return result
 
 }
 
@@ -63,4 +60,4 @@ module.exports.hello = hello;
 module.exports.reverceNumber = reverceNumber;
 module.exports.repeatSymbol = reapeatSymbolWithLimit
 module.exports.rimNumberToArr = rimNumberToArr
-module.exports.getKeyFromMapWithValue = getKeyFromMapWithValue
+module.exports.getKeyFromMapWithValue = RimNumberConvertor

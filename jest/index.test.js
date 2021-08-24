@@ -30,6 +30,22 @@ describe('Testng homeworks 4 && 5 execize in js', () => {
     })
 
     test("get map key by value", ()=>{
-        expect(getKeyFromMapWithValue(10)).toEqual("X")
+        expect(getKeyFromMapWithValue("XVI")).toEqual(16)
+    })
+
+    test("get map key by value", ()=>{
+        expect(getKeyFromMapWithValue("XIV")).toEqual(14)
+    })
+
+    test("get map key by value", ()=>{
+        expect(getKeyFromMapWithValue("IXX")).toEqual(19)
+    })
+
+    test("get map key by value 9", ()=>{
+        expect(getKeyFromMapWithValue("IX")).toEqual(9)
+    })
+
+    test("get map key by value 1996", ()=>{
+        expect(getKeyFromMapWithValue("MCMXCVI")).toEqual(1996)
     })
 })
