@@ -38,10 +38,14 @@ const symbols = new Map([
 const rimNumberToArr = number => number.split('');
 
 const getKeyFromMapWithValue = (value) => {
-    let data = [...symbols].forEach(([key, val]) => val === value);
-    return data
-}
+    let data = [...symbols].find(([key, val]) => val === value);
+    if (data) {
+        let [key, _] = data;
+        return key;
+    }
 
+    return null;
+}
 
 function RimNumberConvertor(number) {
     let numbers = rimNumberToArr(number);
